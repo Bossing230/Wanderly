@@ -1,0 +1,11 @@
+const r = require('express').Router();
+const c = require('../controllers/destinationController');
+const { protect } = require('../middleware/authMiddleware');
+r.use(protect);
+r.get('/search', c.search);
+r.get('/reverse', c.reverse);
+r.get('/nearby', c.nearby);
+r.get('/categories', c.categories);
+r.get('/recent', c.recent);
+r.get('/image', c.image);
+module.exports = r;

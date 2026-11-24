@@ -1,0 +1,19 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+:root { --page:#EEF4F3; --surface:#FFFFFF; --ink:#10262B; --muted:#5B7176; --line:#D8E4E2; }
+.dark { --page:#0B1A1D; --surface:#12282C; --ink:#E8F2F1; --muted:#8FA9AD; --line:#1F3A3F; }
+@layer base {
+  body { @apply bg-page text-ink font-sans antialiased; }
+  h1,h2,h3 { @apply font-display tracking-tight; }
+  :focus-visible { @apply outline-none ring-2 ring-sea ring-offset-2 ring-offset-page; }
+}
+@layer components {
+  .card { @apply bg-surface border border-line rounded-2xl; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-primary { @apply btn bg-sea text-white hover:bg-deep; }
+  .btn-ghost { @apply btn border border-line bg-surface text-ink hover:border-sea hover:text-sea; }
+  .btn-danger { @apply btn bg-coral text-white hover:opacity-90; }
+  .input { @apply w-full rounded-xl border border-line bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-muted focus:border-sea; }
+  .label { @apply block text-sm font-medium mb-1.5; }
+  .chip { @apply rounded-full border border-line bg-surface px-3 py-1.5 text-sm font-medium text-muted hover:border-sea hover:text-sea transition; }
+  .chip-on { @apply border-sea bg-sea text-white hover:text-white; }
+}
