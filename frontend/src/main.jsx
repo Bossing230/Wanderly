@@ -1,10 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { HashedRouter } from 'react-router-dom';
-import App from './App.jsx';
-import { AuthProvider } from './context/AuthContext.jsx';
-import { ToastProvider } from './components/ui.jsx';
-import './index.css';
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode><HashedRouter><ToastProvider><AuthProvider><App /></AuthProvider></ToastProvider></HashedRouter></React.StrictMode>
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { HashRouter } from "react-router-dom";
+import App from "./App.jsx";
+import { AuthProvider } from "./context/AuthContext.jsx";
+import "./styles/style.css";
+
+// HashRouter keeps routing working on GitHub Pages, which has no server-side
+// rewrites (a refresh on /about would otherwise 404).
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <HashRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </HashRouter>
+  </StrictMode>
 );
