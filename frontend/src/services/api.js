@@ -9,7 +9,7 @@ api.interceptors.response.use((r) => r, (e) => {
   const url = e.config?.url || '';
   if (e.response?.status === 401 && !url.includes('/auth/login') && !url.includes('/auth/setup')) {
     localStorage.removeItem('wanderly_token');
-    if (location.pathname !== '/login') location.assign('/login');
+    if (!location.hash.includes('/login')) location.hash = '#/login';
   }
   return Promise.reject(e);
 });
